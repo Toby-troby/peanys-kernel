@@ -5,10 +5,6 @@
 #include <stdint.h>  // for integer types
 #include <stdarg.h>  // for ellipsis stuff
 #include <libc/string.h>
-
-static const size_t VGA_WIDTH = 80;
-static const size_t VGA_HEIGHT = 25;
-static uint16_t* const VGA_MEMORY = (uint16_t*) 0xB8000;
  
 static size_t terminal_row;
 static size_t terminal_column;
@@ -20,7 +16,7 @@ void terminal_initialize(void)
 	terminal_row = 0;
 	terminal_column = 0;
 	terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
-	terminal_buffer = (uint16_t*) 0xB8000;
+	terminal_buffer = VGA_TTY_ADDR;
 	for (size_t y = 0; y < VGA_HEIGHT; y++) {
 		for (size_t x = 0; x < VGA_WIDTH; x++) {
 			const size_t index = y * VGA_WIDTH + x;
@@ -77,3 +73,13 @@ void terminal_printf(const char* data, ...)
 	terminal_write(data, strlen(data), 1);
 	va_end(list);
 }
+
+void terminal_clearscreen()
+{
+	terminal_row = 0;
+	terminal_column =0;
+	// TODO: use memset to clear terminal_buffer.
+}
+
+
+
