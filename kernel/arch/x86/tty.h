@@ -1,5 +1,5 @@
-#ifndef I386_TTY_H
-#define I386_TTY_H
+#ifndef x86_TTY_H
+#define x86_TTY_H
 
 #include <stddef.h>
 #include "vga.h"
