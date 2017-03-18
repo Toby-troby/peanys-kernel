@@ -1,0 +1,1 @@
+OBJS:= $(OBJS) arch/$(ARCH)/load.o arch/$(ARCH)/tty.o

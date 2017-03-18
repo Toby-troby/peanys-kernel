@@ -1,0 +1,1 @@
+OBJS:= $(OBJS) libc/string.o 
