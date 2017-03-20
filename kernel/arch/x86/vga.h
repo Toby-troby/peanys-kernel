@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-static const size_t VGA_WIDTH = 80;
-static const size_t VGA_HEIGHT = 25;
+static const uint32_t VGA_WIDTH = 80;
+static const uint32_t VGA_HEIGHT = 25;
 static uint16_t* const VGA_TTY_ADDR = (uint16_t*) 0xB8000;
 
 enum vga_color {
