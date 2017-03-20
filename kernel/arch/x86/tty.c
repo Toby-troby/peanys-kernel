@@ -77,9 +77,13 @@ void terminal_printf(const char* data, ...)
 void terminal_clearscreen()
 {
 	terminal_row = 0;
-	terminal_column =0;
-	// TODO: use memset to clear terminal_buffer.
+	terminal_column = 0;
+	memset(terminal_buffer, 0, VGA_WIDTH * VGA_HEIGHT);
 }
 
-
+void terminal_setcursorpos(size_t x, size_t y)
+{
+	terminal_column = x;
+	terminal_row = y;
+}
 
