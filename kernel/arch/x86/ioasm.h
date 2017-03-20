@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifndef asmv
+#define asmv asm volatile
+#endif
+
 void outb(uint32_t addr, uint8_t val);
 void outw(uint32_t addr, uint16_t val);
 void outl(uint32_t addr, uint32_t val);
