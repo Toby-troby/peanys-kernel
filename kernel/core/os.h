@@ -1,8 +1,9 @@
-#ifndef OS_H
-#define OS_H
+#ifndef KERN_OS_H
+#define KERN_OS_H
 
-#define KERNEL_VER_MAJOR "0"
-#define KERNEL_VER_MINOR "0"
+#define KERNEL_VER_MAJOR 0
+#define KERNEL_VER_MINOR 0
+#define KERNEL_VER_PATCH 0
 
 #ifdef __x86__
 #include <arch/x86/vga.h>

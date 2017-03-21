@@ -37,15 +37,13 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 	terminal_buffer[index] = vga_entry(c, color);
 }
  
-void terminal_putchar(char c, size_t format) 
+void terminal_putchar(char c) 
 {
 	// Formatting stuff
-	if(format != 0) {
-		if(c == '\n') {
-			c = '\0';
-			terminal_row += 1;
-			terminal_column = -1;
-		}
+	if(c == '\n') {
+		c = '\0';
+		terminal_row += 1;
+		terminal_column = -1;
 	}
 
 	terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
@@ -56,15 +54,15 @@ void terminal_putchar(char c, size_t format)
 	}
 }
  
-void terminal_write(const char* data, size_t size, size_t format) 
+void terminal_write(const char* data, size_t size) 
 {
 	for (size_t i = 0; i < size; i++)
-		terminal_putchar(data[i], format);
+		terminal_putchar(data[i]);
 }
  
 void terminal_print(const char* data) 
 {
-	terminal_write(data, strlen(data), 0);
+	terminal_write(data, strlen(data));
 }
 
 void terminal_printf(const char* s, ...)
@@ -159,7 +157,7 @@ void terminal_printf(const char* s, ...)
 				terminal_printf((char *) va_arg(ap, int));
 			} 
 		} else
-			terminal_putchar(c, 1);
+			terminal_putchar(c);
 	}
 
 	return;
