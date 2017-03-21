@@ -1,6 +1,4 @@
 TODO:
 kgetchar();
-kprintf();
-kputs();
 
 paging
