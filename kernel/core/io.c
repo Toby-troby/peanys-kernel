@@ -11,5 +11,5 @@ void kputs(const char *s) {
 
 void panic(const char *s) {
 	kprintf("\nKernel Panic - %s", s);
-	for(;;);
+	reboot();
 }
