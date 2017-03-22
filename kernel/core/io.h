@@ -6,4 +6,6 @@
 #define kprintf terminal_printf
 #define kputc terminal_putchar
 
+void kputs(const char *s);
+
 #endif

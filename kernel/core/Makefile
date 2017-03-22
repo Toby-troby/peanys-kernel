@@ -1,1 +1,1 @@
-OBJS:= $(OBJS) core/kernel.o 
+OBJS:= $(OBJS) core/kernel.o core/io.o 
