@@ -11,5 +11,7 @@ void kernel_main(void)
 		KERNEL_VER_PATCH
 	);
 	
+	panic("thing aint workin!");
+	
 	return;
 }

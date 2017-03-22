@@ -6,6 +6,8 @@
 #define kprintf terminal_printf
 #define kputc terminal_putchar
 
+// printing stuff
 void kputs(const char *s);
+void panic(const char *s);
 
 #endif
