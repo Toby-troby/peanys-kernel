@@ -1,30 +1,17 @@
 #include "boot.h"
 
-static const int MAX_8042_LOOPS = 100000;
-static const int MAX_8042_FF = 32;
-
-static int empty_8042(void)
+static void enable_a20_fast(void)
 {
-	u8 status = 0;
-	int ffs = MAX_8042_FF;
+	u8 port_a;
 	
-	for(int loops = MAX_8042_LOOPS; loops > 0; loops--) {
-		status = inb(0x64);
-		if(status == 0xFF) {
-			if(!--ffs)
-				return -1; /* No Keyboard Controller Present */
-		}
-		if (status & 1) {
-			io_delay();
-			(void)inb(0x60);
-		}
-		else if (!(status & 2))
-			return 0;	/* Finished! */
-	}
-	return -1; /* Timeout */
+	port_a = inb(0x92);
+	port_a |= 0x02;
+	port_a &= ~0x01;
+	outb(port_a, 0x92);
 }
 
 void enable_a20(void)
 {
-
+	/* TODO: Check to see if A20 Line is enabled first. */
+	enable_a20_fast();
 }
