@@ -1,4 +1,4 @@
-#include "asm.h"
+#include "ioasm.h"
 
 // output stuff
 void outb(uint32_t addr, uint8_t val)
@@ -36,4 +36,10 @@ uint32_t inl(uint32_t addr)
 	uint8_t r;
 	asmv("inl %%dx, %%eax" : "=a" (r) : "d" (addr));
 	return r;
+}
+
+void io_delay(void)
+{
+	const int io_delay_port = 0x80;
+	asmv("outb %%al, %0" : : "dN" (io_delay_port));
 }
