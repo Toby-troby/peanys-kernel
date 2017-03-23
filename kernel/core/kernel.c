@@ -11,7 +11,5 @@ void kernel_main(void)
 		KERNEL_VER_PATCH
 	);
 	
-	panic("End of kernel_main");
-	
 	return;
 }
