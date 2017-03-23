@@ -1,7 +1,7 @@
 #include "boot.h"
 
-static const int MAX_8042_LOOPS 100000
-static const int MAX_8042_FF 32
+static const int MAX_8042_LOOPS = 100000;
+static const int MAX_8042_FF = 32;
 
 static int empty_8042(void)
 {
