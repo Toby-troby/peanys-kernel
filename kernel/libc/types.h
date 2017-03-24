@@ -13,4 +13,4 @@ typedef signed short	s16;
 typedef signed int 		s32;
 typedef signed long long s64;
 
-#endif /* KCRT_TYPES_H */
+#endif /* LIBC_TYPES_H */

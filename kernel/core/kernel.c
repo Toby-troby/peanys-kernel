@@ -11,10 +11,11 @@ void kernel_main(void)
 {
 	basic_setup();
 	
-	kprintf("Peany's Kernel\n");
-	kprintf("Version: %d.%d.%d\n",
-		KERNEL_VER_MAJOR,
-		KERNEL_VER_MINOR,
-		KERNEL_VER_PATCH
-	);
+	kprintf("Hello, World!\n");
+	
+	/* Idle CPU */
+	while(1) {
+		/* TODO: Do CPU idling here */
+		asm("hlt");
+	}
 }
