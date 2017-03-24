@@ -15,6 +15,7 @@ void kernel_main(void)
 	
 	/* Idle CPU */
 	while(1) {
-		asmv("nop");
+		/* TODO: Do CPU idling here */
+		asm("hlt");
 	}
 }

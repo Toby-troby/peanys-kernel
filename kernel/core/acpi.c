@@ -7,6 +7,6 @@ void reboot(void)
 	while(tmp & 0x02)
 		tmp = inb(0x64);
 	
-	outb(0x64, 0xFE); // Pulse the CPU Reset Line, so it resets the system.
-	asmv("hlt"); // halt CPU if fail
+	outb(0x64, 0xFE); /* reboot system. CPU might get triggered */
+	asm("hlt"); /* halt CPU if it got really triggered */
 }

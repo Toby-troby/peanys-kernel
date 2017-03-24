@@ -3,11 +3,6 @@
 
 #include <stdint.h>
 
-/* asmv: for general inline assembly stuff */
-#ifndef asmv
-#define asm volatile
-#endif
-
 typedef unsigned char 	u8;
 typedef unsigned short	u16;
 typedef unsigned int 	u32;
