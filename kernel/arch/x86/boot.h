@@ -2,6 +2,7 @@
 #define x86_BOOT_H
 
 #include <libc/types.h>
+#include <libc/string.h>
 
 #include "asm.h"
 #include "ioasm.h"
@@ -49,5 +50,10 @@ struct biosregs {
 		};
 	};
 };
+
+inline void initregs(struct biosregs *regs)
+{
+	memset(regs, 0, sizeof(*regs));
+}
 
 #endif
