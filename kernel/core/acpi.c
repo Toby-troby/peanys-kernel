@@ -8,5 +8,9 @@ void reboot(void)
 		tmp = inb(0x64);
 	
 	outb(0x64, 0xFE); /* reboot system. CPU might get triggered */
-	asm("hlt"); /* halt CPU if it got really triggered */
+
+halt_loop: /* halt CPU repeatedly if it got really triggered */
+	asm("hlt"); 
+	goto halt_loop;
 }
+
