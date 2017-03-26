@@ -1,1 +1,0 @@
-OBJS:= $(OBJS) libc/string.o libc/stdlib.o 

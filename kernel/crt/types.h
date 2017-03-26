@@ -1,5 +1,5 @@
-#ifndef LIBC_TYPES_H
-#define LIBC_TYPES_H
+#ifndef CRT_TYPES_H
+#define CRT_TYPES_H
 
 #include <stdint.h>
 

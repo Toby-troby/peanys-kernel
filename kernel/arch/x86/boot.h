@@ -1,8 +1,8 @@
 #ifndef x86_BOOT_H
 #define x86_BOOT_H
 
-#include <libc/types.h>
-#include <libc/string.h>
+#include <crt/types.h>
+#include <crt/string.h>
 
 #include "asm.h"
 #include "ioasm.h"

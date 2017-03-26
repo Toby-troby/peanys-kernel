@@ -1,7 +1,7 @@
 #include "io.h"
 
 void kputs(const char *s) {
-	kprintf("%s\n");
+	kprintf("%s\n", s);
 }
 
 void panic(const char *s) {
