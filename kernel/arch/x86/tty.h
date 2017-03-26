@@ -14,5 +14,6 @@ void terminal_writestring(const char* data);
 void terminal_printf(const char* data, ...);
 void terminal_clearscreen();
 void terminal_setcursorpos(size_t x, size_t y);
+void terminal_scroll(unsigned int n);
 
 #endif
