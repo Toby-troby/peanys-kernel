@@ -4,5 +4,6 @@
 # Kernel Binary
 .bin
 
-# Debug files
+# Misc. files
 *.txt
+*.swp
