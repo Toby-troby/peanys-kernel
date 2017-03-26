@@ -1,0 +1,12 @@
+#sources
+*.c text
+*.h text
+
+# Compiled Object files
+*.slo binary
+*.lo binary
+*.o binary
+*.obj binary
+
+# Compiled Kernel Binary
+*.bin binary
