@@ -10,7 +10,7 @@
 /* TODO: Do initialisation functions. */
 void enable_a20(void);
 
-struct biosregs {
+struct regs_t {
 	union {
 		struct {
 			u32 edi;
@@ -51,7 +51,7 @@ struct biosregs {
 	};
 };
 
-inline void initregs(struct biosregs *regs)
+inline void initregs(struct regs_t *regs)
 {
 	memset(regs, 0, sizeof(*regs));
 }
