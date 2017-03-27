@@ -1,5 +1,5 @@
-#ifndef PROCESS_H
-#define PROCESS_H
+#ifndef KERN_PROCESS_H
+#define KERN_PROCESS_H
 
 #include <core/os.h>
 
