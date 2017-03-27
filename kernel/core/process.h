@@ -1,0 +1,13 @@
+#ifndef PROCESS_H
+#define PROCESS_H
+
+#include <core/os.h>
+
+struct process_t {
+	regs_t regs;
+	/* TODO: Add page directory to this struct. */
+	struct process_t *next;
+};
+
+#endif
+
