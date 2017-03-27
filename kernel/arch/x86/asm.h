@@ -5,4 +5,7 @@
 #define asmv asm volatile
 #endif
 
+#define sti() asm ("sti");
+#define cli() asm ("cli");
+
 #endif
