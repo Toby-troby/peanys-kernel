@@ -1,5 +1,5 @@
 LINKER= arch/$(ARCH)/linker.ld
-CFLAG= $(INCDIR) -std=gnu11 -ffreestanding -O2 -Wall -Wextra -Wpedantic -Werror -fms-extensions 
+CFLAG= $(INCDIR) -std=gnu11 -ffreestanding -O2 -Wall -Wextra -Werror -fms-extensions 
 LDFLAG= -T $(LINKER) -o $(KERNEL) -ffreestanding -O2 -nostdlib $(OBJS) -lgcc
 
 ASM=i686-elf-as
