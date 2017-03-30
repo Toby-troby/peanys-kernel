@@ -1,10 +1,12 @@
 #include <core/os.h>
 #include <core/io.h>
+#include <core/paging.h>
 #include <core/cmos.h>
 
 static void basic_setup(void)
 {
 	enable_a20();
+	init_paging();
 	init_cmos();
 	terminal_initialize();
 }

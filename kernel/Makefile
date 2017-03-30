@@ -21,7 +21,10 @@ $(KERNEL): $(OBJS)
 	
 %.o: %.asm
 	$(ASM) $< -o $@
-	
+
+%.o: %.s
+	$(ASM) $< -o $@
+
 help:
 	@echo This is a makefile for the kernel.
 	@echo kernel: $(KERNEL)
