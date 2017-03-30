@@ -4,8 +4,8 @@
 #include <stddef.h>	 // for C definitions
 #include <stdint.h>  // for integer types
 #include <stdarg.h>  // for ellipsis stuff
-#include <libc/string.h>
-#include <libc/stdlib.h>
+#include <crt/string.h>
+#include <crt/stdlib.h>
  
 static size_t terminal_row;
 static size_t terminal_column;

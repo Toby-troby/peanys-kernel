@@ -1,8 +1,0 @@
-
-TODO:
-kgetch();
-
-memory management (or mm)
-cpu idling
-gdt
-interrupts

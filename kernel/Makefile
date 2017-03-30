@@ -6,7 +6,7 @@ include ./arch/$(ARCH)/config.make
 
 include ./core/Makefile
 include ./drivers/Makefile
-include ./libc/Makefile
+include ./crt/Makefile
 include ./arch/$(ARCH)/Makefile
 
 CFLAG:=$(CFLAG) -D__$(ARCH)__
@@ -21,7 +21,10 @@ $(KERNEL): $(OBJS)
 	
 %.o: %.asm
 	$(ASM) $< -o $@
-	
+
+%.o: %.s
+	$(ASM) $< -o $@
+
 help:
 	@echo This is a makefile for the kernel.
 	@echo kernel: $(KERNEL)
