@@ -7,4 +7,5 @@ mov 8(%esp), %eax
 mov %eax, %cr3
 mov %ebp, %esp
 pop %ebp
+ret
 
