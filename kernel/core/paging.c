@@ -30,7 +30,8 @@ void add_ptable(unsigned int ptable[], size_t pt_size)
 {
 	if(pt_size != PAGE_TABLE_SIZE)
 		panic("Invalid Page Table Size!");
-	
+	else if(ptable_count == PAGE_TABLE_SIZE)
+		panic("Cannot Add To Page Directory, as it is full!");
 	/*
 	 *  Attributes : supervisor level, read/write, present.
 	 */
@@ -39,5 +40,6 @@ void add_ptable(unsigned int ptable[], size_t pt_size)
 		ptable[index] = (index * 0x1000) | 3; 
 
 	page_directory[ptable_count] = (unsigned int)ptable | 3;
+	ptable_count++;
 }
 
