@@ -5,16 +5,23 @@
 
 static void basic_setup(void)
 {
-	enable_a20();
-	init_paging();
-	init_cmos();
 	terminal_initialize();
+	kprintf("Booting..\n\n");
+	kprintf("Initializing A20 Address..\n");
+	enable_a20();
+	kprintf("Initializing Paging..\n");
+	init_paging();
+	kprintf("Initializing CMOS..\n");
+	init_cmos();
+	kprintf("\nDone!\n\n");
 }
 
 void kernel_main(void) 
 {
 	basic_setup();
-	kprintf("Booted on %u/%u/%u\n", ktime_s.month, ktime_s.dayofmonth, ktime_s.year);	
+	kprintf("== Booted on %u/%u/%u at %u:%u:%u ==\n",
+		       	ktime_s.month, ktime_s.dayofmonth, ktime_s.year,
+			ktime_s.hours, ktime_s.minutes, ktime_s.seconds);	
 	kprintf("Hello, World!\n");
 	
 	/* Idle CPU */
