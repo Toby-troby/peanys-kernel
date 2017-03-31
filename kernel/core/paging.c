@@ -11,7 +11,10 @@ void wipe_pdir(void)
 
 void init_paging(void)
 {
+	unsigned int page_table[PAGE_TABLE_SIZE] __attribute__((aligned(4096)));
+
 	wipe_pdir();
+	add_ptable(page_table, 1024);
 	load_pdir(page_directory);
 	enable_paging();
 }
