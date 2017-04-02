@@ -10,4 +10,6 @@
 #include <arch/x86/tty.h>
 #endif
 
+#define noreturn _Noreturn
+
 #endif//OS_H

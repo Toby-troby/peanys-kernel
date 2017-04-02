@@ -9,6 +9,6 @@
 
 // printing stuff
 void kputs(const char *s);
-void panic(const char *s);
+noreturn void panic(const char *s);
 
 #endif
