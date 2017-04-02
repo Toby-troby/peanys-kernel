@@ -1,9 +1,5 @@
 #include <core/dt/gdt.h>
 
-#define GDT_ENTRY_SIZE 8
-#define GDT_BASE 0x00000000
-#define GDT_LIMIT 0xFFFFFFFF
-
 static void gdt_init_entry(int index, uint32_t limit, uint8_t access)
 {
 	uint32_t base = 0;

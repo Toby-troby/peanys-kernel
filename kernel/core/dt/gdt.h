@@ -3,6 +3,10 @@
 
 #include <core/os.h>
 
+#define GDT_ENTRY_SIZE 8
+#define GDT_BASE 0x00000000
+#define GDT_LIMIT 0xFFFFFFFF
+
 struct gdt_ptr_t {
 	uint16_t limit;
 	uint32_t base;
