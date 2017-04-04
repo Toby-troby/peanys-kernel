@@ -56,7 +56,7 @@ inline void initregs(struct regs_t *regs)
 	memset(regs, 0, sizeof(*regs));
 }
 
-struct mbi {
+struct multiboot_info_t {
 	u32 flags;
 	u32 mem_lower;
 	u32 mem_upper;
@@ -64,6 +64,12 @@ struct mbi {
 	u32 cmdline;
 	u32 mods_count;
 	u32 mods_addr;
+	struct elf_sec {
+		u32 num;
+		u32 size;
+		u32 addr;
+		u32 shndx;
+	};
 	u32 drives_length;
 	u32 drives_addr;
 	u32 mmap_length;
@@ -74,9 +80,9 @@ struct mbi {
 	u32 vbe_control_info;
 	u32 vbe_mode_info;
 	u32 vbe_mode;
-	u32 vbe_interface_seg;
-	u32 vbe_interface_off;
-	u32 vbe_interface_len;
+	u16 vbe_interface_seg;
+	u16 vbe_interface_off;
+	u16 vbe_interface_len;
 };
 
 

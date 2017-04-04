@@ -19,14 +19,14 @@ static void basic_setup(void)
 	kprintf("\nDone!\n\n");
 }
 
-void kernel_main(void) 
+void kernel_main(struct multiboot_info_t* mbi) 
 {
 	basic_setup();
 	kprintf("== Booted on %u/%u/%u at %u:%u:%u ==\n",
 		       	ktime_s.month, ktime_s.dayofmonth, ktime_s.year,
 			ktime_s.hours, ktime_s.minutes, ktime_s.seconds);	
 	kprintf("Hello, World!\n");
-	
+
 	/* Idle CPU */
 	while(1) {
 		/* TODO: Do CPU idling here */
