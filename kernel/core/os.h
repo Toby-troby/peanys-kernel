@@ -24,11 +24,4 @@
 
 #define noreturn _Noreturn
 
-enum kernel_build_info_t {
-	build_date = __DATE__,
-	build_time = __TIME__,
-	build_stdc = __STDC__,
-	build_stdc_ver = __STDC_VERSION__
-};
-
 #endif//OS_H
