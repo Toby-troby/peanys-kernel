@@ -4,8 +4,6 @@
 #include <core/paging.h>
 #include <core/cmos.h>
 
-struct multiboot_info_t *mbi;
-
 static void check_boot(uint32_t mb_magic, void* mb_header)
 {
 	/* Check if bootloader follows bootloader specification. */
