@@ -1,6 +1,12 @@
 #ifndef KERN_OS_H
 #define KERN_OS_H
 
+#ifdef __cplusplus
+#error THIS KERNEL MUST NOT BE BUILT WITH A C++ COMPILER.
+#elif __OBJC__
+#error THIS KERNEL MUST NOT BE BUILT WITH A OBJECTIVE-C COMPILER.
+#endif
+
 #define KERNEL_VER_MAJOR 0
 #define KERNEL_VER_MINOR 0
 #define KERNEL_VER_PATCH 0
@@ -17,5 +23,12 @@
 #endif
 
 #define noreturn _Noreturn
+
+enum kernel_build_info_t {
+	build_date = __DATE__,
+	build_time = __TIME__,
+	build_stdc = __STDC__,
+	build_stdc_ver = __STDC_VERSION__
+};
 
 #endif//OS_H
