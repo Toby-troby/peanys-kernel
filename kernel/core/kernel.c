@@ -8,6 +8,7 @@ struct multiboot_info_t *mbi;
 
 static void check_boot(uint32_t mb_magic, void* mb_header)
 {
+	/* Check if bootloader follows bootloader specification. */
 	if(mb_magic != MULTIBOOT_BOOTLOADER_MAGIC)
 		panic("Not booted by compliant bootloader!");
 
@@ -30,7 +31,7 @@ static void basic_setup(void)
 	init_cmos();
 	kprintf("\nDone!\n\n");
 	
-	kprintf("Peany's Kernel (%d.%d.%d)\n",
+	kprintf("Kernel: Peany's Kernel (%d.%d.%d)\n",
 		KERNEL_VER_MAJOR, 
 		KERNEL_VER_MINOR, 
 		KERNEL_VER_PATCH);
@@ -47,11 +48,11 @@ void kernel_main(uint32_t mb_magic, void* mb_header)
 	kprintf("== Booted on %u/%u/%u at %u:%u:%u ==\n",
 		       	ktime_s.month, ktime_s.dayofmonth, ktime_s.year,
 			ktime_s.hours, ktime_s.minutes, ktime_s.seconds);	
-	kprintf("Hello, World!\n");
+	kprintf("Hello, World!\n"); /* Print "Hello, World!" after boot. */
 
 	/* Idle CPU */
 	while(1) {
-		/* TODO: Do CPU idling here */
+		/* TODO: Do CPU idling here instead of making the machine hang on a while(1) loop */
 		asm("hlt");
 	}
 }
