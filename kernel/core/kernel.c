@@ -29,6 +29,15 @@ static void basic_setup(void)
 	kprintf("Initializing CMOS..\n");
 	init_cmos();
 	kprintf("\nDone!\n\n");
+	
+	kprintf("Peany's Kernel (%d.%d.%d)\n",
+		KERNEL_VER_MAJOR, 
+		KERNEL_VER_MINOR, 
+		KERNEL_VER_PATCH);
+	kprintf("OS: %s (%d.%d.%d)\n\n", OS_TITLE_STR,
+		OS_VER_MAJOR,
+		OS_VER_MINOR,
+		OS_VER_PATCH);
 }
 
 void kernel_main(uint32_t mb_magic, void* mb_header)
