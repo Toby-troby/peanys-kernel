@@ -88,5 +88,6 @@ struct multiboot_info_t {
 	u16 vbe_interface_len;
 };
 
+struct multiboot_info_t *mbi;
 
 #endif
