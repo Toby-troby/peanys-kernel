@@ -13,4 +13,5 @@ uint32_t inl(uint32_t addr);
 
 void io_delay(void);
 
-#endif
+#endif /* x86_IO_ASM_H */
+

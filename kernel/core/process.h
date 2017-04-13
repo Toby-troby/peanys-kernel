@@ -9,5 +9,5 @@ struct process_t {
 	struct process_t *next;
 };
 
-#endif
+#endif /* KERN_PROCESS_H */
 

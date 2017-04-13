@@ -54,3 +54,4 @@ void kernel_main(uint32_t mb_magic, void* mb_header)
 		asm("hlt");
 	}
 }
+

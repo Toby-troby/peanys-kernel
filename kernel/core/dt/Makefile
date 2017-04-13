@@ -1,1 +1,2 @@
-OBJS:= $(OBJS) core/dt/gdt.o core/dt/gdt_s.o 
+OBJS:= $(OBJS) core/dt/gdt.o core/dt/gdt_s.o
+

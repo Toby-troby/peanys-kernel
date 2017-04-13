@@ -32,3 +32,4 @@ _start:
 	call kernel_main
 
 .size _start, . - _start
+

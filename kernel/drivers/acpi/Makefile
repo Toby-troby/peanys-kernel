@@ -1,1 +1,2 @@
-OBJS:= $(OBJS) drivers/acpi/acpi.o 
+OBJS:= $(OBJS) drivers/acpi/acpi.o
+

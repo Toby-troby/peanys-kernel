@@ -8,3 +8,4 @@ noreturn void panic(const char *s) {
 	kprintf("\nKernel Panic - %s", s);
 	for(;;);
 }
+

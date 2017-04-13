@@ -5,4 +5,5 @@
 
 void reboot(void);
 
-#endif
+#endif /* KERN_ACPI_H */
+

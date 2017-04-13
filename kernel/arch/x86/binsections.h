@@ -14,6 +14,7 @@ extern unsigned int e_data;
 
 extern unsigned int s_bss;
 extern unsigned int e_bss;
+
 extern unsigned int e_kernel;
 
 #endif /* x86_BINSECTIONS_H */

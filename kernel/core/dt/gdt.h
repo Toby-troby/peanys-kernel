@@ -28,5 +28,5 @@ struct gdt_entry_t gdt_entries[GDT_ENTRY_SIZE];
 
 void gdt_init();
 
-#endif
+#endif /* KERN_GDT_H */
 

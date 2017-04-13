@@ -11,4 +11,5 @@
 void kputs(const char *s);
 noreturn void panic(const char *s);
 
-#endif
+#endif /* KERN_IO_H */
+

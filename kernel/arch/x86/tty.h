@@ -16,4 +16,4 @@ void terminal_clearscreen();
 void terminal_setcursorpos(size_t x, size_t y);
 void terminal_scroll(unsigned int n);
 
-#endif
+#endif /* x86_TTY_H */
