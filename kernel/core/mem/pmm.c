@@ -10,11 +10,12 @@
  */
 void pmm_init(uint32_t mem_size)
 {
-	total_pages = mem_size / PAGE_SIZE;
+	bitmap = (uint8_t *)(&e_kernel); /* Initialize bitmap. */
+	total_pages = mem_size / PAGE_SIZE; /* Calculate total pages. */
 	bitmap_size = total_pages / PAGE_PER_SECTOR;
 	
 	if(bitmap_size * PAGE_PER_SECTOR < total_pages)
-		bitmap_size++;
+		bitmap_size++; 
 
 	memset(bitmap, 0, bitmap_size); /* Clear Bitmap. */
 }
@@ -22,12 +23,17 @@ void pmm_init(uint32_t mem_size)
 uint32_t pmm_alloc_page()
 {
 	uint32_t i = pmm_get_free_page();
-	SET_USED(i);
+	if(i != 0)
+		SET_USED(i);
+	
 	return i;
 }
 
 void pmm_free_page(uint32_t page)
 {
+	if(page == NULL)
+		return;
+	
 	SET_FREE(page);
 }
 
@@ -38,7 +44,6 @@ uint32_t pmm_get_free_page()
 		if(!IS_USED(i))
 			return i;	
 	}
-	panic("Ran out of memory!");
+	kprintf("Warning: Cannot get free page!\n"); /* TODO: Add a function to print warnings. */
 	return 0;
 }
-
