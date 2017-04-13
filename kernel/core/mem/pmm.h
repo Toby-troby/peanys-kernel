@@ -14,6 +14,7 @@
 #define SET_FREE(i)  bitmap[i / PAGE_PER_SECTOR] = bitmap[i / PAGE_PER_SECTOR] & (~(1 << (i % PAGE_PER_SECTOR)))
 #define  IS_USED(i) ((bitmap[i / PAGE_PER_SECTOR] >> (i % PAGE_PER_SECTOR)) & 0x1)
 
+uint8_t *bitmap;
 uint32_t bitmap_size;
 uint32_t total_pages;
 
