@@ -3,6 +3,7 @@
 
 #include <core/os.h>
 #include <core/io.h>
+#include <core/mem/pmm.h>
 
 /* Assembly Functions */
 extern void load_pdir(unsigned int*);
