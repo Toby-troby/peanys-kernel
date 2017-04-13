@@ -1,2 +1,3 @@
-OBJS:= $(OBJS) core/kernel.o core/io.o core/cmos.o core/paging_asm.o core/paging.o 
+OBJS:= $(OBJS) core/kernel.o core/io.o core/cmos.o 
 include ./core/dt/Makefile
+include ./core/mem/Makefile

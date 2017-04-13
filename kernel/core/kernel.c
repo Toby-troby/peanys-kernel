@@ -1,7 +1,7 @@
 #include <core/os.h>
 #include <core/io.h>
 #include <core/dt/gdt.h>
-#include <core/paging.h>
+#include <core/mem/paging.h>
 #include <core/cmos.h>
 
 static void check_boot(uint32_t mb_magic, void* mb_header)
