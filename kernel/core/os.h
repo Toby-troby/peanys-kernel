@@ -1,10 +1,8 @@
 #ifndef KERN_OS_H
 #define KERN_OS_H
 
-#ifdef __cplusplus
-#error THIS KERNEL MUST NOT BE BUILT WITH A C++ COMPILER.
-#elif __OBJC__
-#error THIS KERNEL MUST NOT BE BUILT WITH A OBJECTIVE-C COMPILER.
+#if !defined (__STDC__)
+#error MUST BE BUILT WITH A C COMPILER.
 #endif
 
 #define KERNEL_VER_MAJOR 0
@@ -24,4 +22,5 @@
 
 #define noreturn _Noreturn
 
-#endif//OS_H
+#endif /* KERN_OS_H */
+
