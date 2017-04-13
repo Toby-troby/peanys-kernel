@@ -10,6 +10,8 @@
 #define MULTIBOOT_HEADER_MAGIC 0x1BADB002
 #define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
 
+typedef uint32_t addr_t;
+
 /* TODO: Do initialisation functions. */
 void enable_a20(void);
 

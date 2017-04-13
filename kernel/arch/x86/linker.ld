@@ -29,6 +29,7 @@ SECTIONS
 		*(COMMON)
 		*(.bss)
 		e_bss = .;
-		e_kernel = .;
 	}
+
+	e_kernel = .;
 }
