@@ -1,7 +1,5 @@
 #include <core/mem/pmm.h>
 
-uint8_t *bitmap = (uint8_t *)(&e_kernel);
-
 /*
  * What this does is:
  * 1. Calculate Things such as:
