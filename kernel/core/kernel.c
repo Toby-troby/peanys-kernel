@@ -21,10 +21,6 @@ static void basic_setup(void)
 	kprintf("Booting..\n\n");
 	kprintf("Initializing A20 Address..\n");
 	enable_a20();
-	kprintf("Initializing GDT..\n");
-	gdt_init();
-	kprintf("Initializing Paging..\n");
-	init_paging();
 	kprintf("Initializing CMOS..\n");
 	init_cmos();
 	kprintf("\nDone!\n\n");

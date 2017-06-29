@@ -38,9 +38,3 @@ uint32_t inl(uint32_t addr)
 	return r;
 }
 
-void io_delay(void)
-{
-	const int io_delay_port = 0x80;
-	asmv("outb %%al, %0" : : "dN" (io_delay_port));
-}
-

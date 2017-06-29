@@ -27,8 +27,8 @@ _start:
 	movl $stack_top, %esp
 
 				# Transfer control to the main kernel.
-	push %ebx		# arg 2
-	push %eax		# arg 1
+	pushl %ebx		# arg 2
+	pushl %eax		# arg 1
 	call kernel_main
 
 .size _start, . - _start

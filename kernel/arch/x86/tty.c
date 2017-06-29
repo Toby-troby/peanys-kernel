@@ -14,13 +14,16 @@ static uint16_t* terminal_buffer;
 
 void terminal_initialize(void) 
 {
+	size_t x, y;
+	size_t index;
+
 	terminal_row = 0;
 	terminal_column = -1;
 	terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
 	terminal_buffer = VGA_TTY_ADDR;
-	for (size_t y = 0; y < VGA_HEIGHT; y++) {
-		for (size_t x = 0; x < VGA_WIDTH; x++) {
-			const size_t index = y * VGA_WIDTH + x;
+	for (y = 0; y < VGA_HEIGHT; y++) {
+		for (x = 0; x < VGA_WIDTH; x++) {
+			index = y * VGA_WIDTH + x;
 			terminal_buffer[index] = vga_entry(' ', terminal_color);
 		}
 	}
@@ -40,7 +43,7 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 void terminal_putchar(char c) 
 {
 	// Formatting stuff
-	if(c == '\n') {
+	if (c == '\n') {
 		c = '\0';
 		terminal_row += 1;
 		terminal_column = -2;
@@ -48,12 +51,11 @@ void terminal_putchar(char c)
 
 	if (++terminal_column == VGA_WIDTH) {
 		terminal_column = -1;
-		if(++terminal_row == VGA_HEIGHT) {
+		if (++terminal_row == VGA_HEIGHT)
 			terminal_row = 0;
-		}
 	}
 	
-	if(terminal_row >= VGA_HEIGHT)
+	if (terminal_row >= VGA_HEIGHT)
 		terminal_scroll(terminal_row - 24);
 	
 	terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
@@ -61,7 +63,8 @@ void terminal_putchar(char c)
  
 void terminal_write(const char* data, size_t size) 
 {
-	for (size_t i = 0; i < size; i++)
+	size_t i;
+	for (i = 0; i < size; i++)
 		terminal_putchar(data[i]);
 }
  
@@ -159,7 +162,7 @@ void terminal_printf(const char* s, ...)
 
 				terminal_printf("0x%s", buf);
 			} else if (c == 's') {
-				terminal_printf((char *) va_arg(ap, int));
+				terminal_printf(va_arg(ap, const char*));
 			} 
 		} else
 			terminal_putchar(c);
@@ -170,8 +173,9 @@ void terminal_printf(const char* s, ...)
 
 void terminal_clearscreen()
 { 
-	for (size_t y = 0; y < VGA_HEIGHT; y++) {
-		for (size_t x = 0; x < VGA_WIDTH; x++) {
+	size_t y, x;
+	for (y = 0; y < VGA_HEIGHT; y++) {
+		for (x = 0; x < VGA_WIDTH; x++) {
 			const size_t index = y * VGA_WIDTH + x;
 			terminal_buffer[index] = vga_entry(' ', terminal_color);
 		}

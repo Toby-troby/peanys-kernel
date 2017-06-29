@@ -11,7 +11,5 @@ uint8_t inb(uint32_t addr);
 uint16_t inw(uint32_t addr);
 uint32_t inl(uint32_t addr);
 
-void io_delay(void);
-
 #endif /* x86_IO_ASM_H */
 

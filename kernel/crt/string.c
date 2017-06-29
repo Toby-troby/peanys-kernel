@@ -10,10 +10,10 @@ size_t strlen(const char* str)
 
 void memset(void* s, int c, size_t n)
 {
+	size_t i;
 	unsigned char* dst = (unsigned char*) s;
-	const unsigned char* src = (const unsigned char*) c;
 	
-	for(size_t i = 0; i < n; i++)
-		dst[i] = src[i];
+	for(i = 0; i < n; i++)
+		dst[i] = c;
 }
 

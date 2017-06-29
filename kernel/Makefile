@@ -20,7 +20,7 @@ $(KERNEL): $(OBJS)
 	$(GCC) $(CFLAG) $(INCDIR) -c $< -o $@
 	
 %.o: %.asm
-	$(ASM) $< -o $@
+	$(ASM) --32 $< -o $@
 
 %.o: %.s
 	$(ASM) $< -o $@

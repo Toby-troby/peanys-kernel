@@ -1,10 +1,10 @@
 LINKER= arch/$(ARCH)/linker.ld
-CFLAG= $(INCDIR) -std=gnu11 -ffreestanding -O2 -Wall -Wextra -Werror -fms-extensions 
-LDFLAG= -T $(LINKER) -o $(KERNEL) -ffreestanding -O2 -nostdlib $(OBJS) -lgcc
+CFLAG= -I. -std=gnu89 -O0 -Wall -Wextra -Werror -fno-exceptions -fno-stack-protector -nostdlib -nodefaultlibs -ffreestanding -fms-extensions -m32
+LDFLAG= -m elf_i386 -static -T $(LINKER) -o $(KERNEL) $(OBJS)
 
-ASM=i686-elf-as
-GCC=i686-elf-gcc
-LD=i686-elf-gcc
+ASM=as
+GCC=gcc
+LD=ld
 
 NM=nm
 OBJDUMP=objdump
