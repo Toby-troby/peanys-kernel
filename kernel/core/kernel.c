@@ -1,7 +1,5 @@
 #include <core/os.h>
 #include <core/io.h>
-#include <core/dt/gdt.h>
-#include <core/mem/paging.h>
 #include <core/cmos.h>
 
 static void check_boot(uint32_t mb_magic, void* mb_header)
@@ -19,10 +17,14 @@ static void basic_setup(void)
 {
 	terminal_initialize();
 	kprintf("Booting..\n\n");
-	kprintf("Initializing A20 Address..\n");
+
+	kprintf("Initializing MMU\n");
 	enable_a20();
-	kprintf("Initializing CMOS..\n");
+	/* To be finished */
+
+	kprintf("Initializing CMOS\n");
 	init_cmos();
+
 	kprintf("\nDone!\n\n");
 	
 	kprintf("Peany's Kernel (%d.%d.%d)\n",
