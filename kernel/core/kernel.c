@@ -25,7 +25,7 @@ static void basic_setup(void)
 	init_cmos();
 	kprintf("\nDone!\n\n");
 	
-	kprintf("Kernel: Peany's Kernel (%d.%d.%d)\n",
+	kprintf("Peany's Kernel (%d.%d.%d)\n",
 		KERNEL_VER_MAJOR, 
 		KERNEL_VER_MINOR, 
 		KERNEL_VER_PATCH);

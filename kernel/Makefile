@@ -26,8 +26,13 @@ $(KERNEL): $(OBJS)
 	$(ASM) $< -o $@
 
 help:
-	@echo This is a makefile for the kernel.
-	@echo kernel: $(KERNEL)
+	@echo '{ help, debug, disasm, run, clean, clean-o }'
+	@echo 'help - prints this'
+	@echo 'debug - prints symbols'
+	@echo 'disasm - disassembles binary'
+	@echo 'run - runs binary'
+	@echo 'clean - removes binary and object files'
+	@echo 'clean-o - removes object files'
 	
 debug:
 	$(NM) -n $(KERNEL)
