@@ -5,7 +5,6 @@ INCDIR= -I.
 include ./arch/$(ARCH)/config.make
 
 include ./core/Makefile
-include ./drivers/Makefile
 include ./crt/Makefile
 include ./arch/$(ARCH)/Makefile
 
