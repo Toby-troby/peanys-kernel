@@ -32,7 +32,7 @@ extern void gdt_flush();
 static void gdt_set_entry(uint32_t entry, uint32_t base, uint32_t limit, uint8_t access)
 {
 	uint8_t granularity = 0xCF;
-	if((entry && base && limit && access) == 0) /* detect if entry is supposed to be null segment */
+	if(entry == GDT_NULL) /* detect if entry is supposed to be null segment */
 		granularity = 0;
 
 	gdt_entries[entry].base_low    = (base & 0xFFFF);
