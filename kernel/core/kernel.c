@@ -18,7 +18,10 @@ static void basic_setup(void)
 	terminal_initialize();
 	kprintf("Booting..\n\n");
 
-	kprintf("Initializing MMU\n");
+	kprintf("Initializing GDT\n");
+	gdt_init();
+
+	kprintf("Enabling a20 gate\n");
 	enable_a20();
 	/* To be finished */
 
