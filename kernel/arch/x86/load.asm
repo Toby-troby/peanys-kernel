@@ -16,7 +16,7 @@
 .section .bss
 .align 16
 stack_bottom:
-.skip 16384 # 16 KiB
+.skip 8192 # 8 KiB
 stack_top:
 
 				# The kernel entry point.
@@ -30,6 +30,11 @@ _start:
 	pushl %ebx		# arg 2
 	pushl %eax		# arg 1
 	call kernel_main
+
+	hang:
+		cli
+		hlt
+		jmp hang
 
 .size _start, . - _start
 
