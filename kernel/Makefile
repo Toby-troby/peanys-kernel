@@ -1,6 +1,7 @@
 ARCH=x86
 KERNEL=kernel.bin
 IMAGE=kernel.iso
+IMAGEDIR = ../image
 BINDIR = ./bin
 INCDIR= -I.
 
@@ -48,11 +49,12 @@ clean:
 	rm -rf $(BINDIR)/objs/*.o
 	@echo "RM    BIN" 
 	rm -rf $(BINDIR)/$(KERNEL)
+	rm -rf $(IMAGEDIR)/boot/$(KERNEL)
 	@echo "RM    ISO"
 	rm -rf ../*.iso
 
 iso:
 	cp $(BINDIR)/$(KERNEL) ../image/boot/$(KERNEL)
-	grub-mkrescue -o ../$(IMAGE) ../image
+	grub-mkrescue -o ../$(IMAGE) $(IMAGEDIR)
 	
 $(V).SILENT:
