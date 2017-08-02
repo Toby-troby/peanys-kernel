@@ -18,7 +18,6 @@
 #ifdef __x86__
 #include <arch/x86/boot.h>
 #include <arch/x86/tty.h>
-#include <arch/x86/dt/gdt.h>
 #endif
 
 #define noreturn _Noreturn

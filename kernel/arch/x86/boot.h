@@ -8,6 +8,8 @@
 #include "ioasm.h"
 #include "binsections.h"
 
+#include "dt/gdt.h"
+
 #define MULTIBOOT_HEADER_MAGIC 0x1BADB002
 #define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
 

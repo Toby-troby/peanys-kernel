@@ -1,5 +1,7 @@
 ARCH=x86
 KERNEL=kernel.bin
+IMAGE=kernel.iso
+BINDIR = ./bin
 INCDIR= -I.
 
 include ./arch/$(ARCH)/config.make
@@ -10,41 +12,47 @@ include ./arch/$(ARCH)/Makefile
 
 CFLAG:=$(CFLAG) -D__$(ARCH)__
 
-all: $(KERNEL)
-
-$(KERNEL): $(OBJS)
+all: $(OBJS)
+	@echo "LD    $(KERNEL)"
 	$(LD) $(LDFLAG)
+	mv $(OBJS) $(BINDIR)/objs
+	mv $(KERNEL) $(BINDIR)
 
 %.o: %.c
+	@echo "GCC   $<"
 	$(GCC) $(CFLAG) $(INCDIR) -c $< -o $@
 	
 %.o: %.asm
+	@echo "ASM   $<"
 	$(ASM) --32 $< -o $@
 
-%.o: %.s
-	$(ASM) $< -o $@
-
 help:
-	@echo '{ help, debug, disasm, run, clean, clean-o }'
+	@echo 'Recipes:'
 	@echo 'help - prints this'
 	@echo 'debug - prints symbols'
 	@echo 'disasm - disassembles binary'
 	@echo 'run - runs binary'
 	@echo 'clean - removes binary and object files'
-	@echo 'clean-o - removes object files'
 	
 debug:
-	$(NM) -n $(KERNEL)
+	$(NM) -n $(BINDIR)/$(KERNEL)
 	
 disasm:
-	$(OBJDUMP) -d $(KERNEL) > disasm.txt
+	$(OBJDUMP) -d $(BINDIR)/$(KERNEL) > disasm.txt
 	
 run:
 	$(EMU) $(EMUFLAG)
 
 clean:
-	rm -f $(OBJS) $(KERNEL) disasm.txt
+	@echo "RM    OBJS"
+	rm -rf $(BINDIR)/objs/*.o
+	@echo "RM    BIN" 
+	rm -rf $(BINDIR)/$(KERNEL)
+	@echo "RM    ISO"
+	rm -rf ../*.iso
+
+iso:
+	cp $(BINDIR)/$(KERNEL) ../image/boot/$(KERNEL)
+	grub-mkrescue -o ../$(IMAGE) ../image
 	
-clean-o:
-	rm -f $(OBJS)
-	
+$(V).SILENT:
