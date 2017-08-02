@@ -17,3 +17,12 @@ void memset(void* s, int c, size_t n)
 		dst[i] = c;
 }
 
+void memcpy(void *dest, void *src, size_t n)
+{
+	char *cdest = (char *)dest;
+	char *csrc  = (char *)src;
+
+	unsigned int i;
+	for(i = 0; i < n; i++)
+		cdest[i] = csrc[i];
+}
