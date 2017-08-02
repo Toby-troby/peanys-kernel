@@ -1,5 +1,6 @@
 #include "gdt.h"
 #include <stdint.h>
+#include <crt/string.h>
 
 #define GDT_NULL  0
 #define GDT_KCODE 1
@@ -57,6 +58,8 @@ void gdt_init(void)
         gdt_set_entry(GDT_KDATA, 0, 0xFFFFFFFF, 0x92); /* Kernel Data Segment */
 	gdt_set_entry(GDT_UCODE, 0, 0xFFFFFFFF, 0xFA); /* User Code Segment */
 	gdt_set_entry(GDT_UDATA, 0, 0xFFFFFFFF, 0xF2); /* User Data Segment */
+
+	memcpy((char *)gdt_ptr.base, (char *)gdt_entries, gdt_ptr.limit);
 
 	gdt_flush(); /* load gdt into CPU */
 
